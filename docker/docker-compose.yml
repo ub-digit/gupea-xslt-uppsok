@@ -1,0 +1,15 @@
+services:
+  gupea-xslt-uppsok:
+    image: docker.ub.gu.se/sinatra:ruby-3.2.2
+    env_file:
+      - .env
+    environment:
+      RACK_ENV: "development"
+    volumes:
+      - '../:/usr/src/app'
+    ports:
+      - ${HOST_PORT}:3000
+networks:
+  default:
+    name: dspace_dspace-net
+    external: true

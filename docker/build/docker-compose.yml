@@ -1,0 +1,8 @@
+services:
+  gupea-xslt-uppsok:
+    image: docker.ub.gu.se/gupea-xslt-uppsok:${GIT_REVISION}
+    build:
+      context: .
+      args:
+        - GIT_REPO_URL=${GIT_REPO_URL}
+        - GIT_REVISION=${GIT_REVISION}
