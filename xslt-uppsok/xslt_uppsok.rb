@@ -67,7 +67,7 @@ module XsltUppsok
       url_dspace = URI::HTTP.build(
         host:  DSPACE_HOST,
         port:  DSPACE_PORT,
-        path:  '/oai/request',
+        path:  '/server/oai/request',
         query: query_to_send_to_dspace
       ).to_s
 
