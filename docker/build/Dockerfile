@@ -1,22 +1,16 @@
-FROM alpine:latest AS release
-ARG GIT_REVISION
-ARG GIT_REPO_URL
+FROM ruby:3.3.14
 
-RUN apk add --no-cache git
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
 
-WORKDIR /root/
-
-RUN set -ex \
-  && git clone $GIT_REPO_URL release -b $GIT_REVISION --depth 1
-
-FROM docker.ub.gu.se/sinatra:ruby-3.2.2
-
+# timezone env with default
+ENV TZ=Europe/Stockholm
 # Set working directory in container
 WORKDIR /usr/src/app/
 
-COPY --from=release /root/release /usr/src/app
+COPY . ./
 
 RUN bundle install --jobs 4 --retry 3
 
 # Start the main process
-CMD ["bundle", "exec", "puma", "-b", "tcp://0.0.0.0:3000"]
+CMD ["bundle", "exec", "puma", "-b", "0.0.0.0"]
