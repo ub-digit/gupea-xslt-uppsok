@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 
-ruby ">= 3.2.0"
+ruby ">= 3.3.14"
 
 gem "sinatra", "~> 4.2"
 gem "sinatra-contrib", "~> 4.2"
-gem "nokogiri", "~> 1.16"
-gem 'httparty', '~> 0.13.7'
+gem "nokogiri", "~> 1.19"
+gem "httparty", "~> 0.24"
 
-gem 'puma'
+gem "puma", "~> 7.2"
 
 # --- Development & debugging tools ---
 group :development do
