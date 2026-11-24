@@ -7,9 +7,6 @@ Bundler.require(:default, ENV.fetch('RACK_ENV', 'development').to_sym)
 require 'sinatra/reloader' if ENV.fetch('RACK_ENV', 'development') == 'development'
 
 class App < Sinatra::Base
-
-   set :bind, '0.0.0.0'
-
    configure :development do
       register Sinatra::Reloader
       also_reload './app.rb'

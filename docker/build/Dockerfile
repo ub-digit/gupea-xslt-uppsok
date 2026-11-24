@@ -13,4 +13,4 @@ COPY . ./
 RUN bundle install --jobs 4 --retry 3
 
 # Start the main process
-CMD ["bundle", "exec", "puma", "-b", "0.0.0.0"]
+CMD ["bundle", "exec", "puma", "-b", "tcp://0.0.0.0:3000"]
